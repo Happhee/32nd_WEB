@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  @font-face {
+    font-family: "LotteMartHappy";
+    font-style: normal;
+    font-weight: 400;
+    src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff")
+      format("woff");
+  }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  width: 100%;
+  text-align: center;
+}
+
+code {
+  font-family: "LotteMartHappy";
+}
+
+h1 {
+  background-color: #b9f3e4;
+}
+article {
+  background-color: #ecc5fb;
+}
