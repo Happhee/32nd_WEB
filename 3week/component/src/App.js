@@ -4,6 +4,7 @@ import { Article, Child, Component, Header, WebPartList } from "./components";
 const App = () => {
   return (
     <div>
+      <Header />
       <Component />
     </div>
   );
