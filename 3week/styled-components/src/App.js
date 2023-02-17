@@ -1,14 +1,15 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { Button, Header } from "./components";
-import GlobalStyle from "./styles/globalStyleds";
+import GlobalStyle from "./styles/globalStyle";
+import theme from "./styles/theme";
 
 const App = () => {
   return (
-    <AppWrapper>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header />
       <Button />
-    </AppWrapper>
+    </ThemeProvider>
   );
 };
 
