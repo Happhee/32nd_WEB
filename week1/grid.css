@@ -1,21 +1,46 @@
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 .grid__container {
-	display: grid;
-	/* grid-template-columns: 200px 200px 500px; */
-	/* grid-template-columns: 1fr 1fr 1fr ; */
-	/* grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  /* grid-template-columns: 200px 200px 500px; */
+  /* grid-template-columns: 1fr 1fr 1fr ; */
+  /* grid-template-columns: repeat(3, 1fr);
 */
-	grid-template-columns: 100px 1fr 2fr;
-	gap: 20px;
-	/* grid-template-columns: 100px 200px auto; */
-/*  
+  grid-template-columns: 100px 1fr 2fr;
+  gap: 20px;
+  /* grid-template-columns: 100px 200px auto; */
+  /*  
 	grid-template-rows: 200px 200px 500px;
 	grid-template-rows: 1fr 1fr 1fr ;
 	grid-template-rows: repeat(3, 1fr);
 	grid-template-rows: 200px 1fr ;
 	grid-template-rows: 100px 200px auto; */
-	text-align: center;
+  text-align: center;
 }
 .grid__item {
-	background-color: yellow;
-	border: solid 0.2rem darkmagenta;
+  background-color: yellow;
+  border: solid 0.2rem darkmagenta;
+}
+.myprofile__wrapper {
+  position: relative;
+  width: fit-content;
+}
+.myprofile__dateBtn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+
+  padding: 1rem;
+
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 1rem;
+  background-color: palevioletred !important;
+}
+.myprofile__dateBtn_id {
+  background-color: palegreen;
 }
