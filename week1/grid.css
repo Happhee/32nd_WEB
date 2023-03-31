@@ -62,9 +62,13 @@ img {
 }
 .myprofile__dateBtn {
   /* position: absolute; */
-  bottom: 1rem;
-  right: 1rem;
+  /* bottom: 1rem;
+  right: 1rem; */
 
+  /* left: 50%; */
+  /* top: 50%; */
+
+  /* transform: translate(-50%, -50%); */
   height: fit-content;
   padding: 1rem;
 
