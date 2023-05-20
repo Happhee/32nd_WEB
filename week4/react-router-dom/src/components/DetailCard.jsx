@@ -1,39 +1,63 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { IMG_LIST } from "../assets";
 
 const DetailCard = () => {
   const { cardId } = useParams();
   const navigate = useNavigate();
-  const selectCard = IMG_LIST.filter(({ id }) => id === Number(cardId));
-  const { imgSrc, name, date, content } = selectCard[0];
+  // eslint-disable-next-line no-undef
+  const [selectCard, setSelectCard] = useState();
+  // const selectCard = IMG_LIST.filter(({ id }) => id === Number(cardId));
+  // const { imgSrc, name, date, content } = selectCard[0];
+  // const getImgCardDetail = async () => {
+  //   const { data, status } = await webClient.get(`/web-gallery/${cardId}`);
+  //   console.log(data.data);
+  //   if (status === 200) setSelectCard(data.data);
+  // };
+
+  //54.180.123.11
+  const getImgCardDetail = () => {
+    fetch(`http://${import.meta.env.VITE_BASE_URL}/web-gallery/${cardId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.code);
+        if (data.code === 200) setSelectCard(data.data);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleBackPage = () => {
     navigate("/", { replace: false, state: { cardId: cardId } });
   };
 
-  return (
-    <St.DetailCardWrapper>
-      <St.DetailCardContentWrapper>
-        <St.Img src={new URL(imgSrc, import.meta.url).href} alt={name} />
-        <St.Header>
-          <h3>{name}</h3>
-        </St.Header>
-        <St.Content>{content}</St.Content>
+  useEffect(() => {
+    getImgCardDetail();
+  }, []);
 
-        <St.DateWrapper>
-          <p> {date}</p>
-        </St.DateWrapper>
-      </St.DetailCardContentWrapper>
-      <St.BackSpan onClick={handleBackPage}>
-        <span className="material-symbols-outlined">arrow_back</span>
-        <span>뒤로가기</span>
-        {/* <Link to="../.." preventScrollReset={true}>
-          뒤로가기
-        </Link> */}
-      </St.BackSpan>
-    </St.DetailCardWrapper>
-  );
+  if (selectCard) {
+    const { imgSrc, name, date, content } = selectCard;
+
+    return (
+      <St.DetailCardWrapper>
+        <St.DetailCardContentWrapper>
+          <St.Img src={new URL(imgSrc, import.meta.url).href} alt={name} />
+          <St.Header>
+            <h3>{name}</h3>
+          </St.Header>
+          <St.Content>{content}</St.Content>
+
+          <St.DateWrapper>
+            <p> {date}</p>
+          </St.DateWrapper>
+        </St.DetailCardContentWrapper>
+        <St.BackSpan onClick={handleBackPage}>
+          <span className="material-symbols-outlined">arrow_back</span>
+          <span>뒤로가기</span>
+        </St.BackSpan>
+      </St.DetailCardWrapper>
+    );
+  }
+  return <p>에러페이지</p>;
 };
 
 export default DetailCard;
