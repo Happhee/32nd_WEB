@@ -148,15 +148,18 @@ ${reset}
 #root, body, html {
     display:flex;
     align-items:center;
+    justify-content: center;
     flex-direction:column;
     width:100%;
     height: 100vh;
     margin: 0 auto;
 }
+
   
 * {
    font-family: 'CookieRun-Regular';
     box-sizing: border-box;
+
 }
     
 `;
